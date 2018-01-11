@@ -99,7 +99,7 @@ func makeRestoreInitContainers(backupURL *url.URL, token, repo, version string, 
 					" --initial-cluster %[2]s=%[3]s"+
 					" --initial-cluster-token %[4]s"+
 					" --initial-advertise-peer-urls %[3]s"+
-					" --data-dir %[5]s", backupFile, m.Name, m.PeerURL(), token, dataDir),
+					" --data-dir %[5]s 2>/dev/termination-log", backupFile, m.Name, m.PeerURL(), token, dataDir),
 			},
 			VolumeMounts: etcdVolumeMounts(),
 		},
